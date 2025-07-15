@@ -1,0 +1,349 @@
+/* ===== Layout: Page Structure ===== */
+#dashboard {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100vh;
+  font-family: sans-serif;
+  gap: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+  /* Dark background for the main dashboard */
+  background-color: #393737;
+  /* Light text for general content */
+  color: #e0e0e0;
+}
+
+/* ===== Top Bar ===== */
+#top-bar {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  /* Dark background for the top bar */
+  background: #1f1f1f;
+  /* White text for top bar */
+  color: #fff;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 6px;
+}
+
+#title-box {
+  font-size: 1.2rem;
+}
+
+#view-box,
+#avg-box {
+  text-align: center;
+}
+
+/* ===== Main Grid: Sidebar, Map+Summary, Visuals ===== */
+#main-grid {
+  display: grid;
+  grid-template-columns: 250px 1fr 360px;
+  gap: 10px;
+  height: 100%;
+  min-height: 0;
+  padding-right: 10px;
+  overflow: hidden;
+}
+
+/* ===== Sidebar ===== */
+#sidebar {
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* ===== Sidebar Card Sections ===== */
+.sidebar-section {
+  background: #1e1e1e;
+  border: 1px solid #333;
+  padding: 12px;
+  margin-bottom: 16px;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== Center Column ===== */
+#main-column {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+#map {
+  flex: 9;
+  min-height: 0;
+  border: 1px solid #333;
+  width: 100%;
+  border-radius: 6px;
+}
+
+#summary-box {
+  flex: 1;
+  background: #282828;
+  color: #e0e0e0;
+  padding: 1rem;
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 6px;
+  overflow-y: auto;
+  font-size: 0.87rem;
+}
+
+/* ===== Side Visuals ===== */
+#side-visuals {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.legend-box,
+.bar-chart-box {
+  background: #1e1e1e;
+  border: 1px solid #333;
+  padding: 10px;
+  box-sizing: border-box;
+  min-height: 0;
+  overflow: hidden;
+  border-radius: 6px;
+  height: auto;
+}
+
+#uhi-bar-chart {
+  display: block;
+  margin-top: 8px;
+  width: 100%;
+  height: 100%;
+}
+
+/* ===== Dropdown Input Style ===== */
+#sidebar select {
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 0.95rem;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background-color: #2c2c2c;
+  color: #e0e0e0;
+  box-sizing: border-box;
+  margin-top: 0;
+  appearance: none;
+
+  /* Dropdown arrow */
+  background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="8"><path fill="%23ccc" d="M1 1l5 5 5-5"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 12px 8px;
+  padding-right: 32px;
+}
+
+#sidebar select:focus {
+  outline: none;
+  border-color: #64b5f6;
+  box-shadow: 0 0 0 2px rgba(100, 181, 246, 0.4);
+}
+
+/* ===== LGA Search ===== */
+#lga-search {
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 0.95rem;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background-color: #2c2c2c;
+  color: #e0e0e0;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+#lga-search::placeholder {
+  color: #b0b0b0;
+}
+
+/* ===== Dropdown List Styles ===== */
+.dropdown-container {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.dropdown-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 250px;
+  overflow-y: auto;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background: #2c2c2c;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.dropdown-list li {
+  padding: 10px 12px;
+  cursor: pointer;
+  border-bottom: 1px solid #3d3d3d;
+  font-size: 0.95rem;
+  transition: background 0.2s;
+  color: #e0e0e0;
+}
+
+.dropdown-list li:hover {
+  background-color: #444;
+}
+
+.dropdown-list li.active {
+  background-color: #0a406b;
+  border-left: 3px solid #64b5f6;
+}
+
+/* === Manual === */
+#manual-content ul {
+  padding-left: 1rem;
+  margin: 0.5rem 0;
+}
+
+#manual-content li {
+  margin-bottom: 6px;
+}
+
+#toggle-manual {
+  background-color: #f5f1f1;
+  color: #151515;
+  padding: 6px 12px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#manual-content {
+  background: #282828;
+  border-left: 4px solid #7fb7ec;
+  padding: 10px;
+  border-radius: 4px;
+  color: #e0e0e0;
+}
+
+/* ===== Legend Styling ===== */
+#legend {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 6px 0;
+  background: transparent;
+  color: #e0e0e0;
+}
+
+#legend strong {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+
+.legend-row {
+  display: flex;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+.legend-row span:first-child {
+  width: 20px;
+  height: 12px;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.chart-wrapper {
+  position: relative;
+  min-height: 230px;
+}
+
+.chart-wrapper .bar-chart-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#landcover-pie-chart {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: 300px;
+}
+
+#pie-chart-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  min-height: 0;
+}
+
+#pie-chart-row .bar-chart-box {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 0;
+  height: auto;
+}
+
+/* ===== Responsive Layout ===== */
+@media (max-width: 900px) {
+  #top-bar {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 8px;
+  }
+
+  #main-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+
+  #main-column {
+    order: 2;
+  }
+
+  #sidebar {
+    order: 1;
+  }
+
+  #side-visuals {
+    order: 3;
+    flex-direction: row;
+    height: auto;
+  }
+
+  .legend-box,
+  .bar-chart-box {
+    flex: 1;
+    height: auto;
+  }
+
+  #summary-box {
+    height: auto;
+    margin-top: 10px;
+  }
+}
+
+/* General cleanups */
+.sidebar-section > *:first-child {
+  margin-top: 0;
+}
+
+.sidebar-section h3 {
+  margin: 0 0 2px 0;
+}
+
+.sidebar-section select {
+  /* Ensures all margins are reset for selects within sidebar sections */
+  margin: 0;
+}

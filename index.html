@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Melbourne UHI Dashboard</title>
+
+    <!-- Leaflet -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- D3.js -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div id="dashboard">
+      <!-- === Top Bar === -->
+      <div id="top-bar">
+        <div id="title-box">UHI and HVI Dashboard</div>
+        <div id="view-box">
+          Current View: <span id="view-label">Metropolitian Melbourne UHI</span>
+        </div>
+        <div id="avg-box">Average UHI: <span id="avg-uh">0.0°C</span></div>
+      </div>
+
+      <!-- === Main Grid === -->
+      <div id="main-grid">
+        <!-- Sidebar -->
+        <div id="sidebar">
+          <div class="sidebar-section">
+            <h3>Select LGA</h3>
+            <select id="lga-selector">
+              <option value="">-- Global View --</option>
+            </select>
+          </div>
+
+          <!-- Data Mode -->
+          <div class="sidebar-section">
+            <h3>Data Mode</h3>
+            <select id="mode-selector">
+              <option value="uhi">Urban Heat</option>
+              <option value="hvi">Heat Vulnerability</option>
+            </select>
+          </div>
+
+          <!-- Risk Filter  -->
+          <div class="sidebar-section">
+            <h3>Risk Filter</h3>
+            <label>
+              <input type="checkbox" class="risk-filter" value="High Risk" />
+              High Risk </label
+            ><br />
+            <label>
+              <input
+                type="checkbox"
+                class="risk-filter"
+                value="Moderate Risk"
+              />
+              Moderate Risk </label
+            ><br />
+            <label>
+              <input type="checkbox" class="risk-filter" value="Low Risk" />
+              Low Risk
+            </label>
+          </div>
+
+          <!-- Manual -->
+          <div class="sidebar-section">
+            <button id="toggle-manual" style="width: 100%">How to Use</button>
+          </div>
+          <div
+            id="manual-content"
+            style="
+              display: none;
+              margin-top: 8px;
+              font-size: 0.85rem;
+              line-height: 1.4;
+            "
+          >
+            <p>
+              <strong>Welcome!</strong> This dashboard helps you explore the
+              <strong>Urban Heat Index (UHI)</strong> and
+              <strong>Heat Vulnerability Index (HVI)</strong> across LGAs in
+              Metropolitan Melbourne.
+            </p>
+
+            <ul>
+              <li>
+                📍 <strong>Select an LGA</strong> using the dropdown or by
+                clicking directly on the map.
+              </li>
+              <li>
+                ⚠️ <strong>Use the Risk Filter</strong> to highlight areas of
+                concern.
+              </li>
+              <li>
+                🔁 <strong>Switch between UHI and HVI</strong> via the Data Mode
+                dropdown.
+              </li>
+            </ul>
+
+            <p style="margin-top: 10px">
+              <strong>📊 Visualisation Guidance:</strong>
+            </p>
+            <ul>
+              <li>
+                🌿 <strong>Vegetation Cooling Effect Barchart</strong>: More
+                negative values indicate higher cooling effect.
+              </li>
+              <li>
+                🥧 <strong>Pie Charts</strong>: Hover over slices to see
+                detailed land cover or population composition.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Center Column: Map + Summary -->
+        <div id="main-column">
+          <div id="map"></div>
+          <div id="summary-box"></div>
+        </div>
+
+        <!-- Side Visuals -->
+        <div id="side-visuals">
+          <div class="legend-box">
+            <div id="legend"></div>
+          </div>
+
+          <!-- UHI Chart -->
+          <div class="bar-chart-box" id="uhi-chart-container">
+            <h4 style="margin: 0 0 6px 0">
+              Number of LGA by UHI Intensity Class
+            </h4>
+            <svg id="uhi-bar-chart"></svg>
+          </div>
+
+          <!-- Vegetation Cooling Chart -->
+          <div
+            class="bar-chart-box"
+            id="cooling-chart-container"
+            style="display: none"
+          >
+            <h4 style="margin: 0 0 6px 0">Vegetation Cooling Effect</h4>
+            <svg id="cooling-bar-chart"></svg>
+          </div>
+
+          <div id="pie-chart-row" style="display: none">
+            <!-- Landcover Pie Chart  -->
+            <div class="bar-chart-box" id="landcover-chart-container">
+              <h4 style="margin: 0 0 6px 0">Land Cover Composition</h4>
+              <svg id="landcover-pie-chart"></svg>
+            </div>
+
+            <!-- Population Pie Chart  -->
+            <div class="bar-chart-box" id="population-chart-container">
+              <h4 style="margin: 0 0 6px 0">Population Composition</h4>
+              <svg id="population-pie-chart"></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="main.js"></script>
+  </body>
+</html>
