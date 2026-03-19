@@ -23,3 +23,16 @@ where,
 - Exposure: Normalized Urban Heat Index
 - Sensitivity: A composite of Building Density, Tree Coverage, and Population demographics (Children $0-4$ and Elderly $65+$).
 - Adaptive Capacity: Socioeconomic advantage measured via the IRSD (Index of Relative Socio-economic Disadvantage).
+
+## 📊 Data Sources & Availability
+
+To run the `UHI_analysis.R` script, you must manually download the following datasets. Due to file size and licensing, these are not included in the GitHub repository.
+
+# Required Datasets
+| File Name | Description | Source & Download Link |
+| :--- | :--- | :--- |
+| **LGA_2024_AUST_GDA2020.shp** | 2024 LGA Boundaries | [ABS Digital Boundary Files](https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026/access-and-downloads/digital-boundary-files) (Under *Non-ABS Structure* > *Local Government Areas*) |
+| **LGA_socioeconomic.xlsx** | SEIFA 2021 Indices | [ABS SEIFA 2021](https://www.abs.gov.au/statistics/people/people-and-communities/socio-economic-indexes-areas-seifa-australia/2021) (Data Downloads > *LGA, Indexes, SEIFA 2021.xlsx*) |
+| **population.xlsx** | 2023 Pop Estimates | [ABS Population Estimates](https://www.abs.gov.au/statistics/people/population/regional-population-age-and-sex/latest-release) (Search for *LGA 2023 Data Cube*) |
+| **HY_WATER_AREA_POLYGON.shp**| Vic Water Bodies | [VicMap Hydro](https://datashare.maps.vic.gov.au/search?md=3984e659-2487-512d-b390-0de817979f21) |
+| **urban_heat.shp** | 2018 Urban Heat Index | [Data.Vic - UHI Index](https://datashare.maps.vic.gov.au/search?md=ea69bd5e-3682-5326-b1ec-8e2964baa6a0) |
